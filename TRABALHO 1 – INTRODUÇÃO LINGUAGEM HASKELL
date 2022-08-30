@@ -76,11 +76,11 @@ Acima de 40 – Obesidade mórbida
 -}
 diagnostico :: Double -> Double -> String
 diagnostico a b = if ((a/(b^2)) <= 17) then "Muito abaixo do peso" 
-else if  ((a/(b^2)) > 17 && ((a/(b^2)) <= 18.49)) then "Abaixo do peso"
-else if  ((a/(b^2)) > 18.5 && ((a/(b^2)) <= 24,99)) then "Peso normal"
-else if  ((a/(b^2)) > 25 && ((a/(b^2)) <= 29,99)) then "Sobrepeso"
-else if  ((a/(b^2)) > 30 && ((a/(b^2)) <= 34,99)) then "Obesidade Ieve"
-else if  ((a/(b^2)) > 35 && ((a/(b^2)) <= 39,99)) then "Obesidade severa"
+else if  ((a/(b^2)) > 17 && ((a/(b^2))) <= 18.49) then "Abaixo do peso"
+else if  ((a/(b^2)) > 18.5 && ((a/(b^2))) <= 24.99) then "Peso normal"
+else if  ((a/(b^2)) > 25 && ((a/(b^2))) <= 29.99) then "Sobrepeso"
+else if  ((a/(b^2)) > 30 && ((a/(b^2))) <= 34.99) then "Obesidade Ieve"
+else if  ((a/(b^2)) > 35 && ((a/(b^2))) <= 39.99) then "Obesidade severa"
 else "Obesidade mórbida"
 
 {- 
@@ -91,18 +91,21 @@ ano for bisexto sabendo que anos bissextos obedecem a seguinte regra:
             𝐸𝑥𝑐𝑒𝑡𝑜 𝑜𝑠 𝑎𝑛𝑜𝑠 𝑞𝑢𝑒 𝑠ã𝑜 𝑚ú𝑙𝑡𝑖𝑝𝑙𝑜𝑠 𝑑𝑒 400 
 1997 não é bissexto, 1900 não é bissexto e 2000 é bissexto.
 -}
+bissexto :: Int -> Bool
+bissexto a = if (mod a 4) == 0 && (mod a 100) /= 0 || (mod a 400) == 0 then True
+else False
 
 main = do
 
   putStrLn ("Func. 1: entrada:1; resultado:" ++ show (soma1 1))
   putStrLn ("Func. 2: entrada:5; resultado:" ++ show (sempre 5))
-  putStrLn ("Func. 3: entrada:2 2 2; resultado:" ++ show (treco 2 2 2))
+  putStrLn ("Func. 3: entrada:2.1 2.2 2.3; resultado:" ++ show (treco 2.1 2.2 2.3))
   putStrLn ("Func. 4: entrada:6 2; resultado:" ++  show (resto 6 2))
-  putStrLn ("Func. 5: entrada:1 2 3 4; resultado:" ++  show (precoMaior 1 2 3 4))
+  putStrLn ("Func. 5: entrada:1.5 2.3 3.4 4.7; resultado:" ++  show (precoMaior 1.5 2.3 3.4 4.7))
   putStrLn ("Func. 6: entrada:1 2 3 4; resultado:" ++  show (impar 1 2))
   putStrLn ("Func. 7: entrada:(1,2); resultado:" ++ show (par(1,2)))
   putStrLn ("Func. 8: entrada:2 3 4; resultado:" ++ show (equacao 2 3 4))
-  putStrLn ("Func. 9: entrada:2; resultado:" ++ show (diagnostico 57 1,80))
-  --putStrLn ("Func. 10: entrada:2; resultado:" ++  )
+  putStrLn ("Func. 9: entrada:73.54 1.80; resultado:" ++ show (diagnostico 73.54 1.80))
+  putStrLn ("Func. 10: entrada:2000; resultado:" ++ show (bissexto 2000))
   
 
