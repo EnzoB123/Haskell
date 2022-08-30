@@ -95,6 +95,7 @@ bissexto :: Int -> Bool
 bissexto a = if (mod a 4) == 0 && (mod a 100) /= 0 || (mod a 400) == 0 then True
 else False
 
+main :: IO()
 main = do
 
   putStrLn ("Func. 1: entrada:1; resultado:" ++ show (soma1 1))
